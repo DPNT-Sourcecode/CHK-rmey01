@@ -2,6 +2,8 @@ package io.accelerate.solutions.CHK;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NavigableMap;
+import java.util.TreeMap;
 
 public class CheckoutSolution {
 
@@ -13,10 +15,16 @@ public class CheckoutSolution {
         'E', 40
     );
 
-    private static final Map<Character, int[]> OFFER = Map.of(
-        // Item : [quantity for offer, offer price]
-        'A', new int[] {3, 130},
-        'B', new int[] {2, 45}
+    private static final Map<Character, NavigableMap<Integer, Integer>> OFFER = 
+    Map.of(
+        'A', new TreeMap<>(Map.of(
+            5, 200,
+            3, 130
+        )),
+        
+        'B', new TreeMap<>(Map.of(
+            2, 45
+        ))
     );
 
     private static final Map<Character, int[]> FREE_ITEM = Map.of(
@@ -62,5 +70,3 @@ public class CheckoutSolution {
         return total;
     }
 }
-
-
