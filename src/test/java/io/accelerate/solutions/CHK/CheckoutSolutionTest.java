@@ -15,12 +15,13 @@ public class CheckoutSolutionTest {
 
     @Test
     public void compute_sum() {
-        assertThat(checkout.checkout(""), equalTo(0));
     }
 
     @Test
     public void invalid_sum() {
         assertThat(checkout.checkout("KKK"), equalTo(-1));
+        assertThat(checkout.checkout(""), equalTo(0));
+
     }
 
     @Test
@@ -56,4 +57,5 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("ABCD"), equalTo(115));
     }
 }
+
 
