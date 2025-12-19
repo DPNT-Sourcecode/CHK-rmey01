@@ -1,0 +1,30 @@
+package io.accelerate.solutions.CHK;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class CheckoutSolutionTest {
+    private CheckoutSolution checkout;
+
+    @BeforeEach
+    public void setUp() {
+        checkout = new CheckoutSolution();
+    }
+
+    @Test
+    public void compute_sum() {
+        assertThat(checkout.checkout(""), equalTo(0));
+    }
+
+    @Test
+    public void invalid_sum() {
+        assertThat(checkout.checkout("KKK"), equalTo(-1));
+    }
+
+    @Test
+    public void offerA() {
+        assertThat(checkout.checkout("AAAB"), equalTo(160));
+    }
+}
