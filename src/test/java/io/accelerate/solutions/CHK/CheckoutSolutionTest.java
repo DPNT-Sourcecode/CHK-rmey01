@@ -14,10 +14,6 @@ public class CheckoutSolutionTest {
     }
 
     @Test
-    public void compute_sum() {
-    }
-
-    @Test
     public void invalid_sum() {
         assertThat(checkout.checkout("KKK"), equalTo(-1));
         assertThat(checkout.checkout(""), equalTo(0));
@@ -29,7 +25,11 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("AAAB"), equalTo(160));
         assertThat(checkout.checkout("AAAAA"), equalTo(200));
         assertThat(checkout.checkout("ABBB"), equalTo(125));
-        
+        assertThat(checkout.checkout("HHHHHHHHHH"), equalTo(80));
+        assertThat(checkout.checkout("HHHHHHH"), equalTo(65));
+        assertThat(checkout.checkout("KK"), equalTo(150));
+        assertThat(checkout.checkout("PPPPP"), equalTo(200));
+        assertThat(checkout.checkout("VVV"), equalTo(130));
     }
 
     @Test
@@ -57,5 +57,6 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("ABCD"), equalTo(115));
     }
 }
+
 
 
