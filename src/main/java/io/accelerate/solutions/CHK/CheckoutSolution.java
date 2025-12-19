@@ -126,6 +126,7 @@ public class CheckoutSolution {
                 }
             }
 
+            // Favors expensive items first for max discount
             itemsInGroup.sort((a, b) -> PRICE.get(b) - PRICE.get(a));
 
             int groupCount = itemsInGroup.size() / size;
@@ -179,5 +180,6 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
