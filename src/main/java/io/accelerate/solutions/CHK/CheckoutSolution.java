@@ -56,12 +56,15 @@ public class CheckoutSolution {
             int count = pair.getValue();
 
             if (OFFER.containsKey(item)){
-                int[] offer = OFFER.get(item);
-                int offerQty = offer[0];
-                int offerPrice = offer[1];
+                NavigableMap<Integer, Integer> offers = OFFER.get(item);
+                
+                for (var entry : offers.descendingMap().entrySet()){
+                    int offerQty = entry.getKey();
+                    int offerPrice = entry.getValue();
+                    total += (count / offerQty) * offerPrice;
+                    total += (count % offerQty) * PRICE.get(item);
+                }
 
-                total += (count / offerQty) * offerPrice;
-                total += (count % offerQty) * PRICE.get(item);
             } else {
                 total += count * PRICE.get(item);
             }
@@ -70,3 +73,4 @@ public class CheckoutSolution {
         return total;
     }
 }
+
