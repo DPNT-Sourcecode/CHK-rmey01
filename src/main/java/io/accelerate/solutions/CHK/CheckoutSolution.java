@@ -9,7 +9,8 @@ public class CheckoutSolution {
         'A', 50,
         'B', 30,
         'C', 20,
-        'D', 15
+        'D', 15,
+        'E', 40
     );
 
     private static final Map<Character, int[]> OFFER = Map.of(
@@ -57,3 +58,4 @@ public class CheckoutSolution {
         return total;
     }
 }
+
