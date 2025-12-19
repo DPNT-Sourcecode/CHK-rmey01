@@ -19,6 +19,10 @@ public class CheckoutSolution {
         'B', new int[] {2, 45}
     );
 
+    private static final Map<Character, int[]> FREE_ITEM = Map.of(
+        'E', new int[] {2, 'B'}
+    );
+
     public Integer checkout(String skus) {
 
         if (skus == null) {
@@ -58,4 +62,5 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
