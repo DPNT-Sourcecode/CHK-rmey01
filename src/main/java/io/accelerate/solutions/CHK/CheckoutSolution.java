@@ -3,6 +3,7 @@ package io.accelerate.solutions.CHK;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NavigableMap;
+import java.util.Set;
 import java.util.TreeMap;
 
 public class CheckoutSolution {
@@ -18,7 +19,7 @@ public class CheckoutSolution {
         Map.entry('H', 10),
         Map.entry('I', 35),
         Map.entry('J', 60),
-        Map.entry('K', 80),
+        Map.entry('K', 70),
         Map.entry('L', 90),
         Map.entry('M', 15),
         Map.entry('N', 40),
@@ -26,14 +27,14 @@ public class CheckoutSolution {
         Map.entry('P', 50),
         Map.entry('Q', 30),
         Map.entry('R', 50),
-        Map.entry('S', 30),
+        Map.entry('S', 20),
         Map.entry('T', 20),
         Map.entry('U', 40),
         Map.entry('V', 50),
         Map.entry('W', 20),
-        Map.entry('X', 90),
-        Map.entry('Y', 10),
-        Map.entry('Z', 50)
+        Map.entry('X', 17),
+        Map.entry('Y', 20),
+        Map.entry('Z', 21)
     );
 
     private static final Map<Character, NavigableMap<Integer, Integer>> OFFER = 
@@ -57,7 +58,7 @@ public class CheckoutSolution {
         )),
 
         'K', new TreeMap<>(Map.of(
-            2, 150
+            2, 120
         )),
 
         'P', new TreeMap<>(Map.of(
@@ -83,6 +84,11 @@ public class CheckoutSolution {
         'E', new int[] {2, 'B'},
         'N', new int[] {3, 'M'},
         'R', new int[] {3, 'Q'}
+    );
+
+
+    private static final Map<Set<Character>, int[]> GROUP_OFFER = Map.of(
+        Set.of('S','T','X','Y','Z'), new int[] {3, 45}
     );
 
     public Integer checkout(String skus) {
@@ -146,3 +152,4 @@ public class CheckoutSolution {
         return total;
     }
 }
+
