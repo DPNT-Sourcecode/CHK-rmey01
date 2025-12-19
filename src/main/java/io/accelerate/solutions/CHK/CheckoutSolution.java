@@ -12,7 +12,8 @@ public class CheckoutSolution {
         'B', 30,
         'C', 20,
         'D', 15,
-        'E', 40
+        'E', 40,
+        'F', 10
     );
 
     private static final Map<Character, NavigableMap<Integer, Integer>> OFFER = 
@@ -24,6 +25,10 @@ public class CheckoutSolution {
         
         'B', new TreeMap<>(Map.of(
             2, 45
+        )),
+
+        'F', new TreeMap<>(Map.of(
+            3, 20
         ))
     );
 
@@ -92,6 +97,7 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
 
