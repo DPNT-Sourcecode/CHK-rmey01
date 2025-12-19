@@ -79,8 +79,10 @@ public class CheckoutSolution {
                     int offerQty = entry.getKey();
                     int offerPrice = entry.getValue();
                     total += (count / offerQty) * offerPrice;
-                    total += (count % offerQty) * PRICE.get(item);
+                    count %= offerQty;
                 }
+
+                total += count * PRICE.get(item);
 
             } else {
                 total += count * PRICE.get(item);
@@ -90,5 +92,6 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
