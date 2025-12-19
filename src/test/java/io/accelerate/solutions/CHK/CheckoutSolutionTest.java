@@ -32,7 +32,7 @@ public class CheckoutSolutionTest {
     @Test
     public void multipleOffers(){
         assertThat(checkout.checkout("AAABB"), equalTo(175));
-        assertThat(checkout.checkout("HHHHHKKQQQ"), equalTo(275));
+        assertThat(checkout.checkout("HHHHHKKQQQ"), equalTo(245));
     }
 
     @Test
@@ -50,7 +50,18 @@ public class CheckoutSolutionTest {
     }
 
     @Test
+    public void groupOffers(){
+        assertThat(checkout.checkout("SSS"), equalTo(45));
+        assertThat(checkout.checkout("SSSZ"), equalTo(65));
+        assertThat(checkout.checkout("STX"), equalTo(45));
+        assertThat(checkout.checkout("STXYZ"), equalTo(82));
+        assertThat(checkout.checkout("SSSZZ"), equalTo(85));
+        assertThat(checkout.checkout("SSSSZZZ"), equalTo(110));
+    }
+
+    @Test
     public void noOffer() {
         assertThat(checkout.checkout("ABCD"), equalTo(115));
     }
 }
+
