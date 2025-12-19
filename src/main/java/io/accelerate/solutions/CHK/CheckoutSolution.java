@@ -48,6 +48,23 @@ public class CheckoutSolution {
             itemCount.put(item, itemCount.getOrDefault(item, 0) + 1);
         }
 
+        // apply free item offers
+        for (var entry : FREE_ITEM.entrySet()){
+            char triggerItem = entry.getKey();
+            int[] rule = entry.getValue();
+
+            int triggerQty = rule[0];
+            char freeItem = (char) rule[1];
+
+            int triggerCount = itemCount.getOrDefault(triggerItem, 0);
+            int freeQty = triggerCount / triggerQty;
+
+            if (freeQty > 0) {
+                int current = itemCount.getOrDefault(freeItem, 0);
+                itemCount.put(freeItem, Math.max(0, current - freeQty));
+            }
+        }
+
         int total = 0;
 
         // calculate price and offer
@@ -73,4 +90,5 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 

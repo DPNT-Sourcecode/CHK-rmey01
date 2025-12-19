@@ -41,8 +41,16 @@ public class CheckoutSolutionTest {
     }
 
     @Test
+    public void freeItemOffer() {
+        assertThat(checkout.checkout("EEB"), equalTo(80));
+        assertThat(checkout.checkout("EEBB"), equalTo(110));
+        assertThat(checkout.checkout("EEEEBB"), equalTo(160));
+    }
+
+    @Test
     public void noOffer() {
         assertThat(checkout.checkout("ABCD"), equalTo(115));
     }
 }
+
 
