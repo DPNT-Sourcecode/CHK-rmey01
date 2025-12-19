@@ -27,4 +27,20 @@ public class CheckoutSolutionTest {
     public void offerA() {
         assertThat(checkout.checkout("AAAB"), equalTo(160));
     }
+
+    @Test
+    public void offerB() {
+        assertThat(checkout.checkout("ABBB"), equalTo(125));
+    }
+
+    @Test
+    public void bothOffers(){
+        assertThat(checkout.checkout("AAABB"), equalTo(175));
+    }
+
+    @Test
+    public void noOffer() {
+        assertThat(checkout.checkout("ABCD"), equalTo(115));
+    }
 }
+
