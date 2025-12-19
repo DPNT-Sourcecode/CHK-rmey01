@@ -1,6 +1,8 @@
 package io.accelerate.solutions.CHK;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.Set;
@@ -108,6 +110,33 @@ public class CheckoutSolution {
             itemCount.put(item, itemCount.getOrDefault(item, 0) + 1);
         }
 
+        int total = 0;
+
+        // apply group offers
+        for (var entry : GROUP_OFFER.entrySet()){
+            Set<Character> group = entry.getKey();
+            int size = entry.getValue()[0];
+            int groupPrice = entry.getValue()[1];
+
+            List<Character> itemsInGroup = new ArrayList<>();
+            for (char item : group){
+                int count = itemCount.getOrDefault(item, 0);
+                for (int i=0; i<count; i++){
+                    itemsInGroup.add(item);
+                }
+            }
+
+            itemsInGroup.sort((a, b) -> PRICE.get(b) - PRICE.get(a));
+
+            int groupCount = itemsInGroup.size() / size;
+            total += groupCount * groupPrice;
+
+            for (int i=0; i<groupCount * size; i++){
+                char itemToRemove = itemsInGroup.get(i);
+                itemCount.put(itemToRemove, itemCount.get(itemToRemove) - 1);
+            }
+        }
+
         // apply free item offers
         for (var entry : FREE_ITEM.entrySet()){
             char triggerItem = entry.getKey();
@@ -124,8 +153,6 @@ public class CheckoutSolution {
                 itemCount.put(freeItem, Math.max(0, current - freeQty));
             }
         }
-
-        int total = 0;
 
         // calculate price and offer
         for (var pair : itemCount.entrySet()){
@@ -152,4 +179,5 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
