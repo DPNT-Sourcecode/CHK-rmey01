@@ -24,20 +24,17 @@ public class CheckoutSolutionTest {
     }
 
     @Test
-    public void offerA() {
+    public void normalOffers() {
         assertThat(checkout.checkout("AAAB"), equalTo(160));
         assertThat(checkout.checkout("AAAAA"), equalTo(200));
-    
-    }
-
-    @Test
-    public void offerB() {
         assertThat(checkout.checkout("ABBB"), equalTo(125));
+        
     }
 
     @Test
-    public void bothOffers(){
+    public void multipleOffers(){
         assertThat(checkout.checkout("AAABB"), equalTo(175));
+
     }
 
     @Test
@@ -48,7 +45,7 @@ public class CheckoutSolutionTest {
     }
 
     @Test
-    public void offerF() {
+    public void buyNgetOneFreeOffers() {
         assertThat(checkout.checkout("FFF"), equalTo(20));
         assertThat(checkout.checkout("FFFF"), equalTo(30));
         assertThat(checkout.checkout("FFFFFF"), equalTo(40));
@@ -59,3 +56,4 @@ public class CheckoutSolutionTest {
         assertThat(checkout.checkout("ABCD"), equalTo(115));
     }
 }
+

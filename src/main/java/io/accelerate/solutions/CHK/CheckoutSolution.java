@@ -49,11 +49,40 @@ public class CheckoutSolution {
 
         'F', new TreeMap<>(Map.of(
             3, 20
+        )),
+
+        'H', new TreeMap<>(Map.of(
+            10, 80,
+            5, 45
+        )),
+
+        'K', new TreeMap<>(Map.of(
+            2, 150
+        )),
+
+        'P', new TreeMap<>(Map.of(
+            5, 200
+        )),
+
+        'Q', new TreeMap<>(Map.of(
+            3, 80
+        )),
+
+        'U', new TreeMap<>(Map.of(
+            4, 120
+        )),
+
+        'V', new TreeMap<>(Map.of(
+            3, 130,
+            2, 90
         ))
+
     );
 
     private static final Map<Character, int[]> FREE_ITEM = Map.of(
-        'E', new int[] {2, 'B'}
+        'E', new int[] {2, 'B'},
+        'N', new int[] {3, 'M'},
+        'R', new int[] {3, 'Q'}
     );
 
     public Integer checkout(String skus) {
@@ -117,5 +146,6 @@ public class CheckoutSolution {
         return total;
     }
 }
+
 
 
